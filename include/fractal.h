@@ -12,6 +12,9 @@
 
 #ifndef    FRACTAL_H
 # define    FRACTAL_H
+# include <mlx.h>
+# include <libft.h>
+
 typedef struct	s_fractal_data
 {
 	void	*mlx_ptr;

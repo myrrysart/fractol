@@ -12,5 +12,10 @@
 
 #ifndef    FRACTAL_H
 # define    FRACTAL_H
+typedef struct	s_fractal_data
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}	t_fractal_data;
 
 #endif

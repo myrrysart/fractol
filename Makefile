@@ -6,11 +6,11 @@
 #    By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 01:12:07 by jyniemit          #+#    #+#              #
-#    Updated: 2025/05/23 01:41:52 by jyniemit         ###   ########.fr        #
+#    Updated: 2025/05/24 15:56:21 by jyniemit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fractal
+NAME = fractol
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
@@ -51,8 +51,7 @@ clean:
 	@make -C $(MLXDIR) clean
 
 fclean: clean
-	@rm -f $(SERVER)
-	@rm -f $(CLIENT)
+	@rm -f $(NAME)
 	@make -C $(LIBFTDIR) fclean
 
 debug: fclean
@@ -61,4 +60,6 @@ debug: fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re debug
+valgrind: $(NAME)
+	valgrind --leak-check=full --suppressions=../mlx_suppressions.supp --show-leak-kinds=all ./$(NAME)
+.PHONY: all clean fclean re debug valgrind

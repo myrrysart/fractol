@@ -6,7 +6,7 @@
 #    By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 01:12:07 by jyniemit          #+#    #+#              #
-#    Updated: 2025/05/24 15:56:21 by jyniemit         ###   ########.fr        #
+#    Updated: 2025/05/25 04:23:06 by jyniemit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,15 @@ LIBFT = $(LIBFTDIR)libft.a
 MLX = $(MLXDIR)libmlx_Linux.a
 HEADERS = $(INCLUDEDIR)fractal.h
 
-SRC = ./src/main.c
-
+SRC = ./src/main.c \
+	./src/palette.c \
+	./src/double_parsing.c \
+	./src/handle_input.c \
+	./src/animation.c \
+	./src/rendering_utils.c \
+	./src/julia_rendering.c \
+	./src/mandelbrot_rendering.c \
+	./src/rendering.c
 OBJDIR = ./build/
 OBJ = $(addprefix $(OBJDIR), $(notdir $(SRC:.c=.o)))
 

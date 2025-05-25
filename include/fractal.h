@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractal.h                                          :+:      :+:    :+:   */
+/*   fractal.h                                                /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 01:09:04 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/25 05:11:53 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/25 22:30:16 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define    FRACTAL_H
 # include <mlx.h>
 # include <libft.h>
+# include <math.h>
 
 //Keycodes
 # define ESC_KEY 65307
@@ -23,6 +24,7 @@
 # define UP_KEY 65362
 # define DOWN_KEY 65364
 //math definitions
+# define MAX_ANIMATION_STEPS 1500
 # define MAX_ITERATIONS 100
 # define MAX_WIN_WIDTH 1920
 # define MAX_WIN_HEIGHT	1080
@@ -80,7 +82,9 @@ int		animate_julia(void *generic_data);
 void	update_and_display(t_fractal_data *data);
 t_complex	pixel_to_complex(int x, int y, t_fractal_data *data);
 void	init_coordinate_lookup(t_fractal_data *data);
-void	render_julia(t_fractal_data *data);
-void	render_mandelbrot(t_fractal_data *data);
+void	render_julia(t_fractal_data *data, int x, int y);
+void	render_mandelbrot(t_fractal_data *data, int x, int y);
 void	cleanup(t_fractal_data *data, int nbr);
+int		get_sin_intensity(int iteration);
+void	fill_color_map(t_fractal_data *data, int (*color_func)(int), int bg);
 #endif

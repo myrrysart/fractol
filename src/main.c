@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.c                                                   /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:59:06 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/25 05:15:30 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/25 22:31:23 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(int ac, char **av)
 	t_fractal_data	data;
 
 	check_parameters(ac, av, &data);
-	data.win_height = MAX_WIN_HEIGHT / 3;
-	data.win_width = MAX_WIN_WIDTH / 3;
+	data.win_height = MAX_WIN_HEIGHT / 5;
+	data.win_width = MAX_WIN_WIDTH / 5;
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, data.win_width, data.win_height,
 			"fractol");

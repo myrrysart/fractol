@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia_rendering.c                                  :+:      :+:    :+:   */
+/*   julia_rendering.c                                        /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:51:43 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/25 04:26:41 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/25 22:09:24 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,13 @@ int	julia_iterations(t_complex z0, t_complex c)
 	return (MAX_ITERATIONS);
 }
 
-void	render_julia(t_fractal_data *data)
+void	render_julia(t_fractal_data *data, int y, int x)
 {
-	int				y;
-	int				x;
 	t_complex		c;
 	int				iterations;
 	unsigned int	color;
 	int				offset;
 
-	y = 0;
 	while (y < data->win_height)
 	{
 		x = 0;

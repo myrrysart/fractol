@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot_rendering.c                             :+:      :+:    :+:   */
+/*   mandelbrot_rendering.c                                   /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:52:36 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/25 03:52:54 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/25 22:06:23 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,13 @@ int	mandelbrot_iterations(t_complex c)
 	return (MAX_ITERATIONS);
 }
 
-void	render_mandelbrot(t_fractal_data *data)
+void	render_mandelbrot(t_fractal_data *data, int x, int y)
 {
-	int				y;
-	int				x;
 	t_complex		c;
 	int				iterations;
 	unsigned int	color;
 	int				offset;
 
-	y = 0;
 	while (y < data->win_height)
 	{
 		x = 0;

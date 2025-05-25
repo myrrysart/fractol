@@ -6,3 +6,4 @@ include/minilibx-linux/test/main.o
 include/minilibx-linux/test/mlx-test
 include/minilibx-linux/libmlx.a
 include/minilibx-linux/libmlx_Linux.a
+fractol

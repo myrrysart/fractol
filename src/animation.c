@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animation.c                                        :+:      :+:    :+:   */
+/*   animation.c                                              /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:47:23 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/25 03:59:03 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/25 21:51:00 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,15 @@ t_complex	interpolate_complex(t_complex start, t_complex end, double t)
 int	animate_julia(void *generic_data)
 {
 	t_fractal_data	*data;
-	int				skip;
-	int				linear_index;
-	int				x;
-	int				y;
+	double			angle;
 
 	data = (t_fractal_data *)generic_data;
 	if (!(data->fractal_type == ANIMATION) || !data->animation_active)
 		return (0);
-	skip = 5;
-	linear_index = data->animation_index * skip;
-	x = linear_index % data->win_width;
-	y = linear_index / data->win_width;
-	data->julia_param = pixel_to_complex(x, y, data);
+	data->animation_index = (data->animation_index + 1) % MAX_ANIMATION_STEPS;
+	angle = ((double)data->animation_index / MAX_ANIMATION_STEPS) * 2.0 * M_PI;
+	data->julia_param.real = 0.7885 * cos(angle);
+	data->julia_param.imag = 0.7885 * sin(angle);
 	data->animation_timer += 0.01;
 	if (data->animation_timer > 0.02)
 	{

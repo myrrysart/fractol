@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile                                                 /_\/ / /\ \ \    #
 #                                                     +:+ +:+         +:+      #
 #    By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 01:12:07 by jyniemit          #+#    #+#              #
-#    Updated: 2025/05/25 04:23:06 by jyniemit         ###   ########.fr        #
+#    Updated: 2025/05/25 21:39:47 by art                       myrrys.art      #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ HEADERS = $(INCLUDEDIR)fractal.h
 
 SRC = ./src/main.c \
 	./src/palette.c \
+	./src/palette_utils.c \
 	./src/double_parsing.c \
 	./src/handle_input.c \
 	./src/animation.c \

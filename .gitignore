@@ -2,3 +2,4 @@ build
 include/libft/libft.a
 include/minilibx-linux/obj
 fractal
+fractol

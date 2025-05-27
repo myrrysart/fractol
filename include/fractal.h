@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef    FRACTAL_H
-# define    FRACTAL_H
+#ifndef FRACTAL_H
+# define FRACTAL_H
 # include <mlx.h>
 # include <libft.h>
+//sin and pi
+# include <math.h>
 
 //Keycodes
 # define ESC_KEY 65307

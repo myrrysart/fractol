@@ -28,23 +28,24 @@
 # define MAX_ITERATIONS 100
 # define MAX_WIN_WIDTH 1920
 # define MAX_WIN_HEIGHT	1080
+
+//colors
 # define NUM_OF_PALETTES 4
 
-
-typedef enum	e_fractal_type
+typedef enum e_fractal_type
 {
 	MANDELBROT,
 	JULIA,
 	ANIMATION
 }	t_fractal_type;
 
-typedef struct	s_complex
+typedef struct s_complex
 {
 	double	real;
 	double	imag;
 }	t_complex;
 
-typedef struct	s_fractal_data
+typedef struct s_fractal_data
 {
 	int				bpp;
 	int				line_len;
@@ -74,15 +75,31 @@ typedef struct	s_fractal_data
 	double			x_lookup[MAX_WIN_WIDTH];
 	double			y_lookup[MAX_WIN_HEIGHT];
 }	t_fractal_data;
-void	init_palette(t_fractal_data *data);
-int		handle_mouse(int keycode, int x, int y, void *generic_data);
-int		handle_key(int keycode, void *generic_data);
-void	check_parameters(int ac, char **av, t_fractal_data *data);
-int		animate_julia(void *generic_data);
-void	update_and_display(t_fractal_data *data);
+
+//animation
+int			animate_julia(void *generic_data);
+
+//rendering utilities
 t_complex	pixel_to_complex(int x, int y, t_fractal_data *data);
-void	init_coordinate_lookup(t_fractal_data *data);
-void	render_julia(t_fractal_data *data);
-void	render_mandelbrot(t_fractal_data *data);
-void	cleanup(t_fractal_data *data, int nbr);
+void		init_coordinate_lookup(t_fractal_data *data);
+
+//palette
+void		init_palette(t_fractal_data *data);
+
+//handle_input
+int			handle_mouse(int keycode, int x, int y, void *generic_data);
+int			handle_key(int keycode, void *generic_data);
+
+//parameter parsing
+void		check_parameters(int ac, char **av, t_fractal_data *data);
+
+//
+void		cleanup(t_fractal_data *data, int nbr);
+//rendering
+void		update_and_display(t_fractal_data *data);
+void		render_julia(t_fractal_data *data, int y, int x);
+void		render_mandelbrot(t_fractal_data *data, int y, int x);
+int			get_sin_intensity(int iteration);
+void		fill_color_map(t_fractal_data *data,
+				int (*color_func)(int), int bg);
 #endif

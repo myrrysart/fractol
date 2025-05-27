@@ -24,7 +24,9 @@
 # define RIGHT_KEY 65363
 # define UP_KEY 65362
 # define DOWN_KEY 65364
+
 //math definitions
+# define MAX_ANIMATION_STEPS 1500
 # define MAX_ITERATIONS 100
 # define MAX_WIN_WIDTH 1920
 # define MAX_WIN_HEIGHT	1080

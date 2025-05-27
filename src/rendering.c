@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/25 03:50:52 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/25 03:59:54 by jyniemit         ###   ########.fr       */
+/*   Created: 2025/05/27 18:09:28 by jyniemit          #+#    #+#             */
+/*   Updated: 2025/05/27 18:09:29 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	update_and_display(t_fractal_data *data)
 {
 	init_coordinate_lookup(data);
 	if (data->fractal_type == MANDELBROT)
-		render_mandelbrot(data);
+		render_mandelbrot(data, 0, 0);
 	else if (data->fractal_type == JULIA)
-		render_julia(data);
+		render_julia(data, 0, 0);
 	else if (data->fractal_type == ANIMATION)
-		render_julia(data);
+		render_julia(data, 0, 0);
 	swap_buffers(data);
 }

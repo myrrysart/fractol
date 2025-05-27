@@ -35,16 +35,13 @@ int	mandelbrot_iterations(t_complex c)
 	return (MAX_ITERATIONS);
 }
 
-void	render_mandelbrot(t_fractal_data *data)
+void	render_mandelbrot(t_fractal_data *data, int x, int y)
 {
-	int				y;
-	int				x;
 	t_complex		c;
 	int				iterations;
 	unsigned int	color;
 	int				offset;
 
-	y = 0;
 	while (y < data->win_height)
 	{
 		x = 0;

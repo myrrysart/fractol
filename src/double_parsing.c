@@ -12,7 +12,7 @@
 
 #include <fractal.h>
 
-void	fract_parser(double *frac_part, double *div, char *dec_pos)
+static void	fract_parser(double *frac_part, double *div, char *dec_pos)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ void	fract_parser(double *frac_part, double *div, char *dec_pos)
 	}
 }
 
-double	simple_atof(char *str)
+static double	simple_atof(char *str)
 {
 	int		sign;
 	int		integer_part;
@@ -53,7 +53,7 @@ double	simple_atof(char *str)
 	return (sign * (integer_part + fractional_part));
 }
 
-void	show_usage_and_exit(void)
+static void	show_usage_and_exit(void)
 {
 	ft_printf("Usage: './fractol' followed by one of these:\n");
 	ft_printf("mandelbrot\n");

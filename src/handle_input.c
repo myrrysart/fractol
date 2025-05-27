@@ -41,7 +41,6 @@ int	handle_key(int keycode, void *generic_data)
 	t_fractal_data	*data;
 
 	data = (t_fractal_data *)generic_data;
-	ft_printf("Key has been pressed:%d\n", keycode);
 	if (keycode == ESC_KEY)
 		cleanup(generic_data, 0);
 	if (keycode == SPACE_KEY)
@@ -64,22 +63,14 @@ int	handle_mouse(int keycode, int x, int y, void *generic_data)
 	data = (t_fractal_data *)generic_data;
 	(void)x;
 	(void)y;
-	if (keycode == 1)
-		ft_printf("Left click\n");
-	if (keycode == 2)
-		ft_printf("Middle click\n");
-	if (keycode == 3)
-	{
-		ft_printf("Right click\n");
-	}
 	if (keycode == 4)
 	{
-		data->zoom *= 1.1;
+		data->zoom *= 0.9;
 		update_and_display(data);
 	}
 	if (keycode == 5)
 	{
-		data->zoom *= 0.9;
+		data->zoom *= 1.1;
 		update_and_display(data);
 	}
 	return (0);

@@ -12,17 +12,17 @@
 
 #include <fractal.h>
 
-void	cleanup(t_fractal_data *data, int nbr);
-void	init_fractal_view(t_fractal_data *data);
-int		close_window(t_fractal_data *data);
+static void	init_fractal_view(t_fractal_data *data);
+void		cleanup(t_fractal_data *data, int nbr);
+int			close_window(t_fractal_data *data);
 
 int	main(int ac, char **av)
 {
 	t_fractal_data	data;
 
 	check_parameters(ac, av, &data);
-	data.win_height = MAX_WIN_HEIGHT / 3;
-	data.win_width = MAX_WIN_WIDTH / 3;
+	data.win_height = MAX_WIN_HEIGHT / 5;
+	data.win_width = MAX_WIN_WIDTH / 5;
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, data.win_width, data.win_height,
 			"fractol");
@@ -51,7 +51,7 @@ void	cleanup(t_fractal_data *data, int nbr)
 	exit(nbr);
 }
 
-void	init_fractal_view(t_fractal_data *data)
+static void	init_fractal_view(t_fractal_data *data)
 {
 	data->current_palette = 0;
 	data->animation_active = 1;

@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:08:54 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/27 18:30:28 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/27 20:24:44 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(int ac, char **av)
 	t_fractal_data	data;
 
 	check_parameters(ac, av, &data);
-	data.win_height = MAX_WIN_HEIGHT / 5;
-	data.win_width = MAX_WIN_WIDTH / 5;
+	data.win_height = MAX_WIN_HEIGHT / 4;
+	data.win_width = MAX_WIN_WIDTH / 4;
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, data.win_width, data.win_height,
 			"fractol");

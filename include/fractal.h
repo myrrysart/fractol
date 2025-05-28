@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:18:11 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/27 18:49:31 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:36:56 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 
 //math definitions
 # define MAX_ANIMATION_STEPS 1500
-# define MAX_ITERATIONS 100
-# define MAX_WIN_WIDTH 1920
+# define MAX_ITERATIONS 800
+# define MAX_WIN_WIDTH 1080
 # define MAX_WIN_HEIGHT	1080
 
 //colors

@@ -32,13 +32,14 @@
 # define MAX_WIN_HEIGHT	1080
 
 //colors
-# define NUM_OF_PALETTES 4
+# define NUM_OF_PALETTES 5
 
 typedef enum e_fractal_type
 {
 	MANDELBROT,
 	JULIA,
-	ANIMATION
+	ANIMATION,
+	PSYAIAIDUCK
 }	t_fractal_type;
 
 typedef struct s_complex

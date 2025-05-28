@@ -32,16 +32,3 @@ void	init_coordinate_lookup(t_fractal_data *data)
 		i++;
 	}
 }
-
-t_complex	pixel_to_complex(int x, int y, t_fractal_data *data)
-{
-	t_complex	c;
-	double		norm_x;
-	double		norm_y;
-
-	norm_x = (x / (double)data->win_width) * 2.0 - 1.0;
-	norm_y = (y / (double)data->win_height) * 2.0 - 1.0;
-	c.real = norm_x * data->zoom + data->center_x;
-	c.imag = norm_y * data->zoom + data->center_y;
-	return (c);
-}

@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:35:22 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/27 18:53:10 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/29 17:24:11 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ static void	handle_movement(t_fractal_data *data, int *keycode)
 	}
 	if (*keycode == UP_KEY)
 	{
-		data->center_y -= data->zoom * 0.1;
+		data->center_y += data->zoom * 0.1;
 		update_and_display(data);
 	}
 	if (*keycode == DOWN_KEY)
 	{
-		data->center_y += data->zoom * 0.1;
+		data->center_y -= data->zoom * 0.1;
 		update_and_display(data);
 	}
 }

@@ -6,36 +6,11 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:09:05 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/29 16:55:41 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/29 17:43:38 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractal.h>
-
-//void	render_mandelbrot(t_fractal_data *data, int x, int y)
-//{
-//	t_complex		c;
-//	int				iterations;
-//	unsigned int	color;
-//	int				offset;
-//	t_complex		z_start = {0.0, 0.0};
-//
-//	while (y < data->win_height)
-//	{
-//		x = 0;
-//		while (x < data->win_width)
-//		{
-//			c.real = data->x_lookup[x];
-//			c.imag = data->y_lookup[y];
-//			iterations = iterations_with_period_detection(z_start, c);
-//			color = data->color_map[iterations];
-//			offset = y * data->line_len + x * (data->bpp / 8);
-//			*(unsigned int *)(data->current_buffer + offset) = color;
-//			x++;
-//		}
-//		y++;
-//	}
-//}
 
 void	render_mandelbrot(t_fractal_data *data, int x, int y)
 {

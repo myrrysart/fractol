@@ -62,6 +62,8 @@ typedef struct s_fractal_data
 	int				animation_active;
 	int				animation_index;
 	int				current_palette;
+	int				low_res_mode;
+	int				skip_factor;
 	t_fractal_type	fractal_type;
 	unsigned int	color_map[MAX_ITERATIONS + 1];
 	char			*img_data1;

@@ -27,9 +27,13 @@
 
 //math definitions
 # define MAX_ANIMATION_STEPS 1500
-# define MAX_ITERATIONS 800
+# define MAX_ITERATIONS 1000
 # define MAX_WIN_WIDTH 1080
 # define MAX_WIN_HEIGHT	1080
+# define PERIOD_CHECK_LENGTH 4
+# define PERIOD_CHECK_START 250
+# define PERIOD_CHECK_FREQ 5
+# define TOLERANCE 1e-14
 
 //colors
 # define NUM_OF_PALETTES 5
@@ -83,8 +87,8 @@ typedef struct s_fractal_data
 int			animate_julia(void *generic_data);
 
 //rendering utilities
-t_complex	pixel_to_complex(int x, int y, t_fractal_data *data);
 void		init_coordinate_lookup(t_fractal_data *data);
+int			iterations_with_period_detection(t_complex z_start, t_complex c);
 
 //palette
 void		init_palette(t_fractal_data *data);

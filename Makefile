@@ -6,7 +6,7 @@
 #    By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 01:12:07 by jyniemit          #+#    #+#              #
-#    Updated: 2025/05/27 16:31:47 by jyniemit         ###   ########.fr        #
+#    Updated: 2025/05/29 13:47:14 by jyniemit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ HEADERS = $(INCLUDEDIR)fractal.h
 
 SRC = ./src/main.c \
 	./src/palette.c \
+	./src/optimization.c \
 	./src/palette_utils.c \
 	./src/double_parsing.c \
 	./src/handle_input.c \

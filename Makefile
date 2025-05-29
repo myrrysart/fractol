@@ -65,6 +65,7 @@ fclean: clean
 
 debug: fclean
 	@make -C $(LIBFTDIR) debug
+	@make -C $(MLXDIR)
 	$(MAKE) CFLAGS="$(CFLAGS) -g" all
 
 re: fclean all

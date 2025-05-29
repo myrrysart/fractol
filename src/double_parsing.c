@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:49:12 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/27 18:31:53 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/29 14:37:08 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,37 @@ static void	show_usage_and_exit(void)
 {
 	ft_printf("Usage: './fractol' followed by one of these:\n");
 	ft_printf("mandelbrot\n");
-	ft_printf("julia [number] [number]\n");
+	ft_printf("julia [float] [float]\n");
 	ft_printf("animation\n");
 	exit(0);
+}
+
+int	is_float_nbr(char *s)
+{
+	int	has_dot;
+	int	has_digits;
+	int	i;
+
+	has_dot = 0;
+	has_digits = 0;
+	i = 0;
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i])
+	{
+		if (s[i] == '.')
+		{
+			if (has_dot)
+				return (0);
+			has_dot = 1;
+		}
+		else if (s[i] >= '0' && s[i] <= '9')
+			has_digits = 1;
+		else
+			return (0);
+		i++;
+	}
+	return (has_digits);
 }
 
 void	check_parameters(int ac, char **av, t_fractal_data *data)
@@ -74,6 +102,8 @@ void	check_parameters(int ac, char **av, t_fractal_data *data)
 	if (!ft_strncmp(av[1], "julia", 5))
 	{
 		if (ac != 4)
+			show_usage_and_exit();
+		if (!is_float_nbr(av[2]) || !is_float_nbr(av[3]))
 			show_usage_and_exit();
 		data->fractal_type = JULIA;
 		data->julia_param.real = simple_atof(av[2]);

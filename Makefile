@@ -6,7 +6,7 @@
 #    By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 01:12:07 by jyniemit          #+#    #+#              #
-#    Updated: 2025/05/30 11:02:01 by jyniemit         ###   ########.fr        #
+#    Updated: 2025/05/30 12:43:03 by jyniemit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,4 @@ debug: fclean
 
 re: fclean all
 
-valgrind: $(NAME)
-	valgrind --leak-check=full --suppressions=../mlx_suppressions.supp --show-leak-kinds=all ./$(NAME)
-.PHONY: all clean fclean re debug valgrind
+.PHONY: all clean fclean re debug

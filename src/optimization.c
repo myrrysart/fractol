@@ -6,11 +6,22 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:39:23 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/30 14:22:22 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:10:09 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractal.h>
+
+int	period_refresh(int *period, t_complex *z_old, t_complex *z)
+{
+	*period += 1;
+	if (*period > PERIOD_REFRESH_RATE_NUMBER)
+	{
+		*period = 0;
+		*z_old = *z;
+	}
+	return (*period);
+}
 
 int	iterations_with_period_detection(t_complex z_start, t_complex c)
 {
@@ -32,12 +43,7 @@ int	iterations_with_period_detection(t_complex z_start, t_complex c)
 		if (i > 0 && fabs(z.real - z_old.real) < TOLERANCE && fabs(z.imag
 				- z_old.imag) < TOLERANCE)
 			return (MAX_ITERATIONS);
-		period++;
-		if (period > PERIOD_REFRESH_RATE_NUMBER)
-		{
-			period = 0;
-			z_old = z;
-		}
+		period_refresh(&period, &z_old, &z);
 		temp_real = z.real * z.real - z.imag * z.imag + c.real;
 		z.imag = 2.0 * z.real * z.imag + c.imag;
 		z.real = temp_real;

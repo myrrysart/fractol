@@ -38,6 +38,6 @@ void	update_and_display(t_fractal_data *data)
 	else if (data->fractal_type == ANIMATION)
 		render_julia(data, 0, 0);
 	else if (data->fractal_type == BURNING_SHIP)
-		render_julia(data, 0, 0);
+		render_ship(data, 0, 0);
 	swap_buffers(data);
 }

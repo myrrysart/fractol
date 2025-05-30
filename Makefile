@@ -30,6 +30,7 @@ SRC = ./src/main.c \
 	./src/animation.c \
 	./src/rendering_utils.c \
 	./src/julia_rendering.c \
+	./src/burning_ship_rendering.c \
 	./src/mandelbrot_rendering.c \
 	./src/rendering.c
 OBJDIR = ./build/

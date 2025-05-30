@@ -32,3 +32,25 @@ void	init_coordinate_lookup(t_fractal_data *data)
 		i++;
 	}
 }
+
+void	fill_pixel_block(t_fractal_data *data, int x, int y, unsigned int color)
+{
+	int	fill_size;
+	int	offset;
+
+	fill_size = 0;
+	while (fill_size < data->skip_factor && y
+		+ fill_size < data->win_height)
+	{
+		offset = 0;
+		while (offset < data->skip_factor && x
+			+ offset < data->win_width)
+		{
+			*(unsigned int *)(data->current_buffer + (y + fill_size)
+					* data->line_len + (x + offset) * (data->bpp
+						/ 8)) = color;
+			offset++;
+		}
+		fill_size++;
+	}
+}

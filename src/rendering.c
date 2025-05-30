@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering.c                                        :+:      :+:    :+:   */
+/*   rendering.c                                              /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:09:28 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/27 18:09:29 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 07:37:52 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	update_and_display(t_fractal_data *data)
 	else if (data->fractal_type == JULIA)
 		render_julia(data, 0, 0);
 	else if (data->fractal_type == ANIMATION)
+		render_julia(data, 0, 0);
+	else if (data->fractal_type == BURNING_SHIP)
 		render_julia(data, 0, 0);
 	swap_buffers(data);
 }

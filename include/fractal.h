@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractal.h                                          :+:      :+:    :+:   */
+/*   fractal.h                                                /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:18:11 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/29 16:43:24 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 07:31:38 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@
 
 //math definitions
 # define MAX_ANIMATION_STEPS 1500
-# define MAX_ITERATIONS 1000
+# define MAX_ITERATIONS 2000
 # define MAX_WIN_WIDTH 1080
 # define MAX_WIN_HEIGHT	1080
-# define PERIOD_CHECK_LENGTH 4
-# define PERIOD_CHECK_START 250
+# define PERIOD_CHECK_LENGTH 2
+# define PERIOD_CHECK_START 450
 # define PERIOD_CHECK_FREQ 5
 # define TOLERANCE 1e-14
 
@@ -43,7 +43,7 @@ typedef enum e_fractal_type
 	MANDELBROT,
 	JULIA,
 	ANIMATION,
-	PSYAIAIDUCK
+	BURNING_SHIP
 }	t_fractal_type;
 
 typedef struct s_complex
@@ -108,6 +108,7 @@ void		cleanup(t_fractal_data *data, int nbr);
 void		update_and_display(t_fractal_data *data);
 void		render_julia(t_fractal_data *data, int y, int x);
 void		render_mandelbrot(t_fractal_data *data, int y, int x);
+void		render_ship(t_fractal_data *data, int y, int x);
 int			get_sin_intensity(int iteration);
 void		fill_color_map(t_fractal_data *data,
 				int (*color_func)(int), int bg);

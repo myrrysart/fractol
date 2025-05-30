@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_parsing.c                                   :+:      :+:    :+:   */
+/*   double_parsing.c                                         /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:49:12 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/29 14:37:08 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 07:36:08 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static void	show_usage_and_exit(void)
 	ft_printf("Usage: './fractol' followed by one of these:\n");
 	ft_printf("mandelbrot\n");
 	ft_printf("julia [float] [float]\n");
+	ft_printf("burning_ship");
 	ft_printf("animation\n");
 	exit(0);
 }
@@ -110,9 +111,14 @@ void	check_parameters(int ac, char **av, t_fractal_data *data)
 		data->julia_param.imag = simple_atof(av[3]);
 		return ;
 	}
-	if (!ft_strncmp(av[1], "animation", 9))
+	if (!ft_strncmp(av[1], "animation", 9) && ft_strlen(av[1]) == 9)
 	{
 		data->fractal_type = ANIMATION;
+		return ;
+	}
+	if (!ft_strncmp(av[1], "burning_ship", 12))
+	{
+		data->fractal_type = BURNING_SHIP;
 		return ;
 	}
 	show_usage_and_exit();

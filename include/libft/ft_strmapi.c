@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                             /_\/ / /\ \ \   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:05:38 by Jyniemit          #+#    #+#             */
-/*   Updated: 2024/11/11 13:05:45 by Jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 06:52:08 by art                       myrrys.art     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!res)
 		return (NULL);
-	while (*(s++) && offset++ >= 0)
+	while (*(s++))
+	{
+		offset++;
 		*(res++) = f(offset - 1, (s - offset)[offset - 1]);
+	}
 	*res = '\0';
 	return (res - offset);
 }

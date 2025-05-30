@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:08:54 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/30 14:40:38 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:11:14 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int	main(int ac, char **av)
 void	image_buffers_init(t_fractal_data *data)
 {
 	data->buffer1 = mlx_new_image(data->mlx, data->win_width, data->win_height);
-	data->img_data1 = mlx_get_data_addr(data->buffer1, &data->bpp, &data->line_len,
-			&data->endian);
+	data->img_data1 = mlx_get_data_addr(data->buffer1, &data->bpp,
+			&data->line_len, &data->endian);
 	data->buffer2 = mlx_new_image(data->mlx, data->win_width, data->win_height);
-	data->img_data2 = mlx_get_data_addr(data->buffer2, &data->bpp, &data->line_len,
-			&data->endian);
+	data->img_data2 = mlx_get_data_addr(data->buffer2, &data->bpp,
+			&data->line_len, &data->endian);
 	data->current_image = data->buffer1;
 	data->current_buffer = data->img_data1;
 }

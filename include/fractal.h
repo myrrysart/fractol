@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:18:11 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/30 11:01:22 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 14:41:55 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,36 @@
 # define FRACTAL_H
 # include <libft.h>
 # include <mlx.h>
-// sin and pi
+// sin, cos, fabs and pi
 # include <math.h>
 
-// Keycodes
+// Keycodes and movement
 # define ESC_KEY 65307
 # define SPACE_KEY 32
 # define LEFT_KEY 65361
 # define RIGHT_KEY 65363
 # define UP_KEY 65362
 # define DOWN_KEY 65364
+# define VQUALITY_TOGGLE_KEY 118
+# define COLOR_KEY 99
+# define BRENDER_KEY 98
+# define MOVEMENT_STEP 0.1
+# define ZOOM_OUT 0.9
+# define ZOOM_IN 1.1
 
-// math definitions
-# define MAX_ANIMATION_STEPS 1500
-# define MAX_ITERATIONS 4000
+// window definitions
 # define MAX_WIN_WIDTH 1920
 # define MAX_WIN_HEIGHT 1920
-# define PERIOD_CHECK_LENGTH 2
-# define PERIOD_CHECK_START 450
-# define PERIOD_CHECK_FREQ 5
+
+// render definitions
+# define MAX_ITERATIONS 4000
 # define TOLERANCE 1e-14
+# define PERIOD_REFRESH_RATE_NUMBER 50
+# define LOW_RES_FACTOR 16
+
+// julia animation
+# define JULIA_RADIUS 0.8
+# define MAX_ANIMATION_STEPS 1500
 
 // colors
 # define NUM_OF_PALETTES 5
@@ -65,7 +75,6 @@ typedef struct s_fractal_data
 	int				low_res_mode;
 	int				skip_factor;
 	t_fractal_type	fractal_type;
-	unsigned int	color_map[MAX_ITERATIONS + 1];
 	char			*img_data1;
 	char			*img_data2;
 	void			*mlx;
@@ -74,13 +83,11 @@ typedef struct s_fractal_data
 	void			*buffer2;
 	void			*current_image;
 	char			*current_buffer;
-	double			animation_timer;
 	double			center_x;
 	double			center_y;
 	double			zoom;
-	double			width_scale;
-	double			height_scale;
 	t_complex		julia_param;
+	unsigned int	color_map[MAX_ITERATIONS + 1];
 	double			x_lookup[MAX_WIN_WIDTH];
 	double			y_lookup[MAX_WIN_HEIGHT];
 }	t_fractal_data;
@@ -114,7 +121,6 @@ void				update_and_display(t_fractal_data *data);
 void				render_julia(t_fractal_data *data, int x, int y);
 void				render_mandelbrot(t_fractal_data *data, int x, int y);
 void				render_ship(t_fractal_data *data, int x, int y);
-int					get_sin_intensity(int iteration);
 void				fill_color_map(t_fractal_data *data, int (*color_func)(int),
 						int bg);
 void				fill_pixel_block(t_fractal_data *data, int x, int y,

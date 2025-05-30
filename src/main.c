@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:08:54 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/30 09:47:08 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 11:43:23 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,12 @@ static void	init_fractal_view(t_fractal_data *data)
 	data->animation_active = 1;
 	data->animation_index = 0;
 	data->animation_timer = 0.0;
-	data->center_x = 0.0;
+	if (data->fractal_type == MANDELBROT)
+		data->center_x = -0.8;
+	else if (data->fractal_type == BURNING_SHIP)
+		data->center_x = -1.8;
+	else
+		data->center_x = 0.0;
 	data->center_y = 0.0;
 	data->zoom = 1.6;
 	data->low_res_mode = 0;

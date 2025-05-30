@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:35:22 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/29 17:24:11 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 10:15:22 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	handle_movement(t_fractal_data *data, int *keycode)
 		update_and_display(data);
 	}
 }
+
 void	toggle_quality_mode(t_fractal_data *data)
 {
 	data->low_res_mode = !data->low_res_mode;
@@ -80,16 +81,16 @@ int	handle_mouse(int keycode, int x, int y, void *generic_data)
 	double			zoom_factor;
 
 	data = (t_fractal_data *)generic_data;
-	mouse_real = ((x / (double)data->win_width) * 2.0 - 1.0) * data->zoom + data->center_x;
-	mouse_imag = (1.0 - (y / (double)data->win_height) * 2.0) * data->zoom + data->center_y;
-	
+	mouse_real = ((x / (double)data->win_width) * 2.0 - 1.0) * data->zoom
+		+ data->center_x;
+	mouse_imag = (1.0 - (y / (double)data->win_height) * 2.0) * data->zoom
+		+ data->center_y;
 	if (keycode == 4)
 		zoom_factor = 0.9;
 	else if (keycode == 5)
 		zoom_factor = 1.1;
 	else
 		return (0);
-	
 	data->center_x = mouse_real + (data->center_x - mouse_real) * zoom_factor;
 	data->center_y = mouse_imag + (data->center_y - mouse_imag) * zoom_factor;
 	data->zoom *= zoom_factor;

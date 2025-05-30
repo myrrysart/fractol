@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:09:33 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/28 18:24:48 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 10:51:52 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_coordinate_lookup(t_fractal_data *data)
 {
-	int	i;
+	int		i;
 	double	norm;
 
 	i = 0;

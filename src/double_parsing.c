@@ -6,7 +6,7 @@
 /*   By: jyniemit <jyniemit@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:49:12 by jyniemit          #+#    #+#             */
-/*   Updated: 2025/05/30 11:01:47 by jyniemit         ###   ########.fr       */
+/*   Updated: 2025/05/30 11:31:49 by jyniemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ static void	julia_init(int ac, char **av, t_fractal_data *data)
 	data->fractal_type = JULIA;
 	data->julia_param.real = simple_atof(av[2]);
 	data->julia_param.imag = simple_atof(av[3]);
-	if (data->julia_param.real > 2.0 || data->julia_param.real < -2.0
-		|| data->julia_param.imag > 2.0 || data->julia_param.imag < -2.0)
+	if (data->julia_param.real > 3.0 || data->julia_param.real < -3.0
+		|| data->julia_param.imag > 3.0 || data->julia_param.imag < -3.0)
 		show_usage_and_exit();
 }
 

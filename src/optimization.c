@@ -29,7 +29,8 @@ static int	check_period_cycle(t_complex z, t_complex *history, int i)
 	j = 1;
 	while (j <= PERIOD_CHECK_LENGTH && j <= i)
 	{
-		if (complex_distance(z, history[(i - j) % PERIOD_CHECK_LENGTH]) < TOLERANCE)
+		if (complex_distance(z, history[(i - j)
+					% PERIOD_CHECK_LENGTH]) < TOLERANCE)
 			return (1);
 		j++;
 	}

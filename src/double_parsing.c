@@ -53,17 +53,7 @@ static double	simple_atof(char *str)
 	return (sign * (integer_part + fractional_part));
 }
 
-static void	show_usage_and_exit(void)
-{
-	ft_printf("Usage: './fractol' followed by one of these:\n");
-	ft_printf("mandelbrot\n");
-	ft_printf("julia [float] [float]\n");
-	ft_printf("burning_ship");
-	ft_printf("animation\n");
-	exit(0);
-}
-
-int	is_float_nbr(char *s)
+static int	is_float_nbr(char *s)
 {
 	int	has_dot;
 	int	has_digits;
@@ -91,24 +81,32 @@ int	is_float_nbr(char *s)
 	return (has_digits);
 }
 
+static void	julia_init(int ac, char **av, t_fractal_data *data)
+{
+	if (ac != 4)
+		show_usage_and_exit();
+	if (!is_float_nbr(av[2]) || !is_float_nbr(av[3]))
+		show_usage_and_exit();
+	data->fractal_type = JULIA;
+	data->julia_param.real = simple_atof(av[2]);
+	data->julia_param.imag = simple_atof(av[3]);
+	if (data->julia_param.real > 2.0 || data->julia_param.real < -2.0
+		|| data->julia_param.imag > 2.0 || data->julia_param.imag < -2.0)
+		show_usage_and_exit();
+}
+
 void	check_parameters(int ac, char **av, t_fractal_data *data)
 {
 	if (ac < 2)
 		show_usage_and_exit();
-	if (!ft_strncmp(av[1], "mandelbrot", 10))
+	if (!ft_strncmp(av[1], "mandelbrot", 10) && ft_strlen(av[1]) == 10)
 	{
 		data->fractal_type = MANDELBROT;
 		return ;
 	}
-	if (!ft_strncmp(av[1], "julia", 5))
+	if (!ft_strncmp(av[1], "julia", 5) && ft_strlen(av[1]) == 5)
 	{
-		if (ac != 4)
-			show_usage_and_exit();
-		if (!is_float_nbr(av[2]) || !is_float_nbr(av[3]))
-			show_usage_and_exit();
-		data->fractal_type = JULIA;
-		data->julia_param.real = simple_atof(av[2]);
-		data->julia_param.imag = simple_atof(av[3]);
+		julia_init(ac, av, data);
 		return ;
 	}
 	if (!ft_strncmp(av[1], "animation", 9) && ft_strlen(av[1]) == 9)
@@ -116,7 +114,7 @@ void	check_parameters(int ac, char **av, t_fractal_data *data)
 		data->fractal_type = ANIMATION;
 		return ;
 	}
-	if (!ft_strncmp(av[1], "burning_ship", 12))
+	if (!ft_strncmp(av[1], "burning_ship", 12) && ft_strlen(av[1]) == 12)
 	{
 		data->fractal_type = BURNING_SHIP;
 		return ;

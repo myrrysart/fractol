@@ -26,6 +26,7 @@ SRC = ./src/main.c \
 	./src/optimization.c \
 	./src/palette_utils.c \
 	./src/double_parsing.c \
+	./src/double_parsing_utils.c \
 	./src/handle_input.c \
 	./src/animation.c \
 	./src/rendering_utils.c \

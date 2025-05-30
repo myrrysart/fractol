@@ -23,6 +23,7 @@ HEADERS = $(INCLUDEDIR)fractal.h
 
 SRC = ./src/main.c \
 	./src/palette.c \
+	./src/palette_continued.c \
 	./src/optimization.c \
 	./src/palette_utils.c \
 	./src/double_parsing.c \
